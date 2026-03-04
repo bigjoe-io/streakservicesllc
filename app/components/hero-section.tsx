@@ -6,28 +6,28 @@ import Link from "next/link";
 const SLIDES = [
   {
     id: 1,
-    src: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-    alt: "Cybersecurity monitoring",
+    src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80",
+    alt: "Business network infrastructure",
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
-    alt: "Hacker with code",
+    src: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80",
+    alt: "IT specialists managing servers",
   },
   {
     id: 3,
-    src: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&q=80",
-    alt: "Network security",
+    src: "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=800&q=80",
+    alt: "Enterprise network operations center",
   },
   {
     id: 4,
-    src: "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=800&q=80",
-    alt: "Cyber threat analysis",
+    src: "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=800&q=80",
+    alt: "Team providing remote IT support",
   },
   {
     id: 5,
-    src: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80",
-    alt: "Data encryption",
+    src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
+    alt: "Customer support team assisting client",
   },
 ];
 
@@ -153,20 +153,22 @@ export default function HeroWithSlider() {
         </div> */}
 
         {/* Headline */}
-        <h1 className="text-5xl sm:text-6xl lg:text-[4rem] font-extrabold text-white leading-[1.08] tracking-tight max-w-4xl mb-6 ">
-        We deliver manage IT services
+        <h1 className="text-5xl sm:text-6xl lg:text-[60px] font-extrabold text-white leading-[1.08] tracking-tight max-w-5xl mb-6 ">
+          Networking, and IT services,{" "}
           <span className="relative inline-block">
-            <span className="text-transparent bg-clip-text"
-              style={{ backgroundImage: "linear-gradient(135deg, #F97316 0%, #FBBF24 50%, #ca4413 100%)" }}>
-             cybersecurity solutions
+            <span
+              className="text-transparent bg-clip-text"
+              style={{ backgroundImage: "linear-gradient(135deg, #F97316 0%, #FBBF24 50%, #ca4413 100%)" }}
+            >
+              tailored to your business
             </span>
           </span>
         </h1>
 
         {/* Sub text */}
         <p className="text-stone-400 text-base sm:text-lg leading-relaxed max-w-2xl mb-10">
-        Our team provides proactive IT management, 24/7 monitoring, and advanced security to protect systems, data, and operations.
-
+          Our team designs, monitors, and supports your networks, devices, and users so your business can run
+          reliably without downtime or IT headaches.
         </p>
 
         {/* CTAs */}

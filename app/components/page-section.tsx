@@ -24,73 +24,59 @@ function useInView(threshold = 0.15) {
    DATA
 ───────────────────────────────────────── */
 const STATS = [
-  { value: "500+", label: "Clients Protected" },
-  { value: "99.9%", label: "Uptime Guarantee" },
-  { value: "24/7", label: "SOC Monitoring" },
-  { value: "< 4 min", label: "Avg. Response Time" },
+  { value: "250+", label: "Businesses Supported" },
+  { value: "99.9%", label: "Network Uptime" },
+  { value: "24/7", label: "Monitoring & Support" },
+  { value: "< 4 min", label: "Avg. Helpdesk Response" },
 ];
 
 const SERVICES = [
   {
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M3.75 7.5l8.25-4.5 8.25 4.5-8.25 4.5-8.25-4.5z"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M3.75 12l8.25 4.5 8.25-4.5M3.75 16.5L12 21l8.25-4.5"
+        />
       </svg>
     ),
-    title: "Managed Security",
-    desc: "End-to-end security management with real-time threat detection, incident response, and compliance reporting across your entire infrastructure.",
-    tag: "Core Service",
+    title: "Networking Services",
+    desc: "Design, deploy, and maintain secure, high‑performance networks across your offices, branches, and remote teams.",
+    tag: "Networking",
   },
   {
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z"
+        />
       </svg>
     ),
     title: "Managed IT Services",
-    desc: "Proactive IT management, helpdesk support, patch management, and infrastructure optimization so your team can focus on what matters.",
-    tag: "Infrastructure",
+    desc: "Proactive IT management, patching, and monitoring for servers, endpoints, and cloud so your team can focus on the business.",
+    tag: "Managed IT",
   },
   {
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.964-7.178z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M18 14.25a3.75 3.75 0 11-7.5 0M9.75 9A3.75 3.75 0 1118 9M4.5 19.5a4.5 4.5 0 019 0M3 9a3.75 3.75 0 107.5 0A3.75 3.75 0 003 9z"
+        />
       </svg>
     ),
-    title: "24/7 SOC Monitoring",
-    desc: "Our Security Operations Center watches your environment around the clock — detecting anomalies, neutralizing threats before they escalate.",
-    tag: "Always On",
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-      </svg>
-    ),
-    title: "Incident Response",
-    desc: "Rapid containment, forensic analysis, and full recovery support when a breach occurs — minimising downtime and business impact.",
-    tag: "Response",
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
-      </svg>
-    ),
-    title: "Zero Trust Architecture",
-    desc: "Design and deploy identity-first, least-privilege access models that assume breach and verify every request, user, and device.",
-    tag: "Architecture",
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
-      </svg>
-    ),
-    title: "Compliance & Auditing",
-    desc: "Navigate ISO 27001, SOC 2, GDPR, HIPAA and more with guided assessments, gap analysis, and audit-ready documentation.",
-    tag: "Compliance",
+    title: "Customer IT Support",
+    desc: "Friendly helpdesk and on‑site support for your staff—solving day‑to‑day IT issues quickly and keeping everyone productive.",
+    tag: "Support",
   },
 ];
 
@@ -126,18 +112,23 @@ function AboutSection() {
           </div>
 
           <h2 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight tracking-tight mb-6">
-            Technology that{" "}
-            <span className="text-transparent bg-clip-text"
-              style={{ backgroundImage: "linear-gradient(135deg, #FDE68A 0%, #FBBF24 50%, #F59E0B 100%)" }}>
-              protects &amp; performs
+            IT that{" "}
+            <span
+              className="text-transparent bg-clip-text"
+              style={{ backgroundImage: "linear-gradient(135deg, #FDE68A 0%, #FBBF24 50%, #F59E0B 100%)" }}
+            >
+              connects &amp; supports
             </span>
           </h2>
 
           <p className="text-stone-400 text-base leading-relaxed mb-5">
-            We deliver managed IT services and cybersecurity solutions that keep businesses secure, resilient, and running at peak performance. Our team provides proactive IT management, 24/7 monitoring, and advanced security to protect systems, data, and operations.
+            We deliver networking and managed IT services that keep your infrastructure stable, fast, and ready for
+            growth. From switches and Wi‑Fi to servers and cloud, we design and run the backbone your business relies
+            on.
           </p>
           <p className="text-stone-400 text-base leading-relaxed mb-8">
-            By aligning technology with business goals, we reduce risk, strengthen infrastructure, and help organizations scale with confidence. We act as a trusted extension of our clients' teams — offering dependable support, strategic guidance, and peace of mind in an evolving threat landscape.
+            By aligning technology with your operations, we reduce downtime, simplify day‑to‑day IT, and give your team
+            a single partner for questions, projects, and support.
           </p>
 
           <Link href="#contact"
@@ -173,8 +164,10 @@ function AboutSection() {
               </svg>
             </div>
             <div>
-              <div className="text-white font-semibold text-sm mb-0.5">Trusted partner, not just a vendor</div>
-              <div className="text-stone-400 text-xs leading-relaxed">We embed within your team, aligning security strategy with your business objectives.</div>
+              <div className="text-white font-semibold text-sm mb-0.5">Trusted IT partner, not just a vendor</div>
+              <div className="text-stone-400 text-xs leading-relaxed">
+                We embed within your team, shaping networking and IT decisions around your business objectives.
+              </div>
             </div>
           </div>
         </div>
@@ -211,7 +204,8 @@ function ServicesSection() {
             Our Services
           </h2>
           <p className="text-stone-400 text-base max-w-xl mx-auto leading-relaxed">
-            A full spectrum of managed IT and cybersecurity services built for modern businesses navigating a complex threat landscape.
+            Three core services—Networking, Managed IT Services, and Customer IT Support—built to keep your business
+            connected and productive.
           </p>
         </div>
 

@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Logo from '@/public/logo.png';
 
 
 const NAV_LINKS = [
@@ -50,17 +51,17 @@ export default function Header() {
             aria-label="Home"
           >
             {/* Animated logo mark */}
-            <span className="relative flex h-7 w-7 items-center justify-center">
-                 
-              <span className="absolute inset-0 rounded-md bg-amber-400 rotate-3 group-hover:rotate-6 transition-transform duration-300" />
+            <span className="relative flex items-center justify-center">
+             <Image src={Logo} alt="Logo" width={100} height={100} />
+              {/* <span className="absolute inset-0 rounded-md bg-amber-400 rotate-3 group-hover:rotate-6 transition-transform duration-300" /> */}
              
-              <span className="relative font-black text-stone-950 text-md leading-none">
+              {/* <span className="relative font-black text-stone-950 text-md leading-none">
                 S
-              </span>
+              </span> */}
             </span>
-            <span className="font-extrabold tracking-tight text-white text-[24px] leading-none">
+            {/* <span className="font-extrabold tracking-tight text-white text-[24px] leading-none">
               streakservices
-            </span>
+            </span> */}
           </Link>
 
           {/* Desktop nav */}

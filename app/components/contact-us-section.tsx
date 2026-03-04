@@ -15,59 +15,7 @@ function useInView(threshold = 0.15) {
   return { ref, inView };
 }
 
-const CONTACT_INFO = [
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-      </svg>
-    ),
-    label: "Email Us",
-    value: "hello@nextstudio.io",
-    href: "mailto:hello@nextstudio.io",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-      </svg>
-    ),
-    label: "Call Us",
-    value: "+1 (800) 123-4567",
-    href: "tel:+18001234567",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-      </svg>
-    ),
-    label: "Our Office",
-    value: "123 Cyber Street, San Francisco, CA",
-    href: "#",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-    label: "Working Hours",
-    value: "24/7 — We never sleep",
-    href: "#",
-  },
-];
 
-const SERVICES_OPTIONS = [
-  "Managed Security",
-  "Managed IT Services",
-  "24/7 SOC Monitoring",
-  "Incident Response",
-  "Zero Trust Architecture",
-  "Compliance & Auditing",
-  "Other",
-];
 
 export default function ContactSection() {
   const { ref, inView } = useInView(0.1);
@@ -78,14 +26,51 @@ export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
+
+  const mailtoHref = (() => {
+    const to = "jcabanobi1@gmail.com";
+    const subject = `Website enquiry from ${form.name || "a visitor"}`;
+    const body = [
+      "New enquiry from the website:",
+      "",
+      `Full name: ${form.name || ""}`,
+      `Email: ${form.email || ""}`,
+      `Company: ${form.company || ""}`,
+      "",
+      "Message:",
+      form.message || "",
+    ].join("\n");
+
+    return `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  })();
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+  
     setLoading(true);
-    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1600);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+     
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -121,14 +106,17 @@ export default function ContactSection() {
             <span className="text-amber-400 text-xs font-semibold tracking-widest uppercase">Get In Touch</span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
-            Let's secure your{" "}
-            <span className="text-transparent bg-clip-text"
-              style={{ backgroundImage: "linear-gradient(135deg, #FDE68A 0%, #FBBF24 50%, #F59E0B 100%)" }}>
-              business today
+            Let's streamline your{" "}
+            <span
+              className="text-transparent bg-clip-text"
+              style={{ backgroundImage: "linear-gradient(135deg, #FDE68A 0%, #FBBF24 50%, #F59E0B 100%)" }}
+            >
+              IT & network
             </span>
           </h2>
           <p className="text-stone-400 text-base max-w-xl mx-auto leading-relaxed">
-            Reach out for a free security assessment or to discuss how we can align our services with your goals.
+            Reach out for a free consultation or to discuss how our networking, managed IT, and support services can
+            back your team.
           </p>
         </div>
 
@@ -184,7 +172,7 @@ export default function ContactSection() {
                   </div>
 
                   {/* Row 2 */}
-                  <div className="grid sm:grid-cols-2 gap-5">
+                  <div className="grid sm:grid-cols-1 gap-5 ">
                     <div className="flex flex-col gap-1.5">
                       <label className="text-stone-400 text-xs font-semibold uppercase tracking-widest">Company</label>
                       <input
@@ -193,7 +181,7 @@ export default function ContactSection() {
                         className="bg-white/5 border border-white/10 focus:border-amber-400/50 focus:bg-white/8 rounded-xl px-4 py-3 text-white text-sm placeholder:text-stone-600 outline-none transition-all duration-200"
                       />
                     </div>
-                    <div className="flex flex-col gap-1.5">
+                    {/* <div className="flex flex-col gap-1.5">
                       <label className="text-stone-400 text-xs font-semibold uppercase tracking-widest">Service Needed</label>
                       <select
                         name="service" value={form.service} onChange={handleChange}
@@ -205,23 +193,28 @@ export default function ContactSection() {
                           <option key={o} value={o} className="bg-[#0e0e1a] text-white">{o}</option>
                         ))}
                       </select>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* Message */}
                   <div className="flex flex-col gap-1.5">
                     <label className="text-stone-400 text-xs font-semibold uppercase tracking-widest">Message *</label>
                     <textarea
-                      name="message" required value={form.message} onChange={handleChange}
+                      name="message"
+                      required
+                      value={form.message}
+                      onChange={handleChange}
                       rows={5}
-                      placeholder="Tell us about your security needs or current challenges…"
+                      placeholder="Tell us about your IT, networking, or support needs…"
                       className="bg-white/5 border border-white/10 focus:border-amber-400/50 focus:bg-white/8 rounded-xl px-4 py-3 text-white text-sm placeholder:text-stone-600 outline-none transition-all duration-200 resize-none"
                     />
                   </div>
 
                   {/* Submit */}
-                  <button
-                    type="submit" disabled={loading}
+                  <a
+                    type="submit"
+                    // disabled={loading}
+                    href={mailtoHref}
                     className="group relative w-full flex items-center justify-center gap-2.5 py-4 rounded-xl bg-amber-400 hover:bg-amber-300 disabled:opacity-70 text-stone-950 font-bold text-sm transition-all duration-200 overflow-hidden"
                   >
                     {loading ? (
@@ -240,8 +233,10 @@ export default function ContactSection() {
                         </svg>
                       </>
                     )}
-                  </button>
+                  </a>
 
+                 
+                 
                   <p className="text-stone-500 text-xs text-center">
                     By submitting, you agree to our{" "}
                     <a href="#" className="text-amber-400/70 hover:text-amber-400 transition-colors">Privacy Policy</a>. We never share your data.
