@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from '@/public/logo.png';
 const FOOTER_LINKS = {
-    Services: ["Managed Security", "Managed IT", "SOC Monitoring", "Incident Response", "Zero Trust", "Compliance"],
-    Company:  ["About Us", "Careers", "Blog", "Press", "Partners"],
+    Services: ["Networking Services", "Managed IT Services", "Customer IT Support",],
+    Company:  ["About Us", "Services", "Contact-us"],
     Legal:    ["Privacy Policy", "Terms of Service", "Cookie Policy", "Security"],
   };
   
@@ -37,7 +37,7 @@ function Footer() {
               </Link>
   
               <p className="text-stone-400 text-sm leading-relaxed max-w-xs mb-6">
-                Managed IT services and cybersecurity solutions that keep businesses secure, resilient, and running at peak performance.
+                Managed IT services.
               </p>
   
               {/* Social icons */}
