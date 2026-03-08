@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "streakservices",
   description: "Streak LLC",
+  icons: {
+    icon: [{ url: "/icon", type: "image/png" }],
+    shortcut: [{ url: "/icon", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({
