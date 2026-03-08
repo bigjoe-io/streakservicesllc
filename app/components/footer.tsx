@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from '@/public/logo.png';
 const FOOTER_LINKS = {
-    Services: ["Networking Services", "Managed IT Services", "Customer IT Support",],
+    Services: ["Networking Services", "Managed IT Services", "Customer IT Support", "Cloud Services", "Strategic Cybersecurity for SMBs"],
     Company:  ["About Us", "Services", "Contact-us"],
     Legal:    ["Privacy Policy", "Terms of Service", "Cookie Policy", "Security"],
   };
@@ -68,6 +68,7 @@ function Footer() {
                 </ul>
               </div>
             ))}
+            
           </div>
   
           {/* CTA bar

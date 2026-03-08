@@ -78,6 +78,34 @@ const SERVICES = [
     desc: "Friendly helpdesk and on‑site support for your staff—solving day‑to‑day IT issues quickly and keeping everyone productive.",
     tag: "Support",
   },
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 002.74-1.22M12 18.75a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75a4.5 4.5 0 01-4.5-4.5z"
+        />
+      </svg>
+    ),
+    title: "Cloud Services",
+    desc: "Migrate, manage, and optimize cloud infrastructure—from AWS and Azure to hybrid setups—so you scale without the complexity.",
+    tag: "Cloud",
+  },
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+        />
+      </svg>
+    ),
+    title: "Strategic Cybersecurity for SMBs",
+    desc: "Tailored security planning and implementation for small to medium businesses—protecting data, systems, and compliance without enterprise overhead.",
+    tag: "Security",
+  },
 ];
 
 
@@ -204,8 +232,8 @@ function ServicesSection() {
             Our Services
           </h2>
           <p className="text-stone-400 text-base max-w-xl mx-auto leading-relaxed">
-            Three core services—Networking, Managed IT Services, and Customer IT Support—built to keep your business
-            connected and productive.
+            Networking, Managed IT, Customer Support, Cloud Services, and Strategic Cybersecurity—built to keep your
+            business connected, productive, and secure.
           </p>
         </div>
 
