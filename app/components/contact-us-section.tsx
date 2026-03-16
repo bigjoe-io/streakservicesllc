@@ -28,7 +28,7 @@ export default function ContactSection() {
 
 
   const mailtoHref = (() => {
-    const to = "jcabanobi1@gmail.com";
+    const to = "support@streakservice.com";
     const subject = `Website enquiry from ${form.name || "a visitor"}`;
     const body = [
       "New enquiry from the website:",
