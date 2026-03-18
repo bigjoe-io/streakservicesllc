@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "streakservices",
+  title: "streakservice",
   description: "Streak LLC",
   icons: {
     icon: [{ url: "/icon", type: "image/png" }],
